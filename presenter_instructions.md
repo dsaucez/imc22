@@ -21,3 +21,7 @@ The filename of the video must start with the `paper id` of the presentation and
 In case remote presenters have issues with their microphone, the chairperson will relay questions and answers on the slack channel of the conference.
 
 Remote presenters will have the opportunity to test the [BigBlueButton](https://bbb.unistra.fr/b/pas-cvz-7gm-czq) tool on Monday October, 24 from 3PM to 5PM CEST using the access code `591726`. We only provide support for Chrome browser.
+
+# Help, support, and questions to the crew
+
+For any question, please visit the `#imc22-help` channel of the [Sigcomm Slack](http://sigcomm.slack.com).
