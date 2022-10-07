@@ -8,7 +8,7 @@ The IMC’22 main track will be live streamed via [BigBlueButton](https://bbb.un
 ## Interaction and Q&A:
 Remote interaction will be underpinned by the SIGCOMM IMC2022 Slack Workspace. We encourage participants to make extensive use of Slack to engage with each other. Q&A for each presentation will also be managed via Slack. At the end of each paper presentation, the session chair will invite questions. Online participants can input their questions to the imc22-main Slack channel. This channel can also be used for wider discussion about presentations. Note, the BigBlueButton chat channel will not be monitored for questions: all questions should take place exclusively via Slack.
 
-Note: SIGCOMM's Slack channels are available via [sigcomm.slack.com](http://sigcomm.slack.com). If you're asked to sign in, use the workspace name `sigcomm.slack.com` to sign up or sign in.)
+Note: SIGCOMM's Slack channels are available via [sigcomm.slack.com](http://sigcomm.slack.com). If you're asked to sign in, use the workspace name `sigcomm.slack.com` to sign up or sign in.) To join SIGCOMM's Slack, go to https://join.slack.com/t/sigcomm/shared_invite/zt-uhdre6eo-dcEZe7iZWLPMlMdaEMAl5g.
 
 # Instructions for presenters
 
