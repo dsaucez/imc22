@@ -37,3 +37,5 @@ Remote presenters will have the opportunity to test the [BigBlueButton](https://
 # Help, support, and questions to the crew
 
 For any question, please visit the `#imc22-help` channel of the [Sigcomm Slack](https://sigcomm.slack.com/archives/C0334CU4W15).
+
+To join SIGCOMM's Slack, go to https://join.slack.com/t/sigcomm/shared_invite/zt-uhdre6eo-dcEZe7iZWLPMlMdaEMAl5g.
