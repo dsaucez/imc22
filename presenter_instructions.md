@@ -16,7 +16,7 @@ Presentations will be projected to the local audience via a laptop provided by t
 
 All authors must provide their presentation in PDF or PowerPoint format (PDF is preferred) no **later than Monday October, 24 at 2PM CEST**.
 
-The presentations is to be uploaded on [Seafile](https://seafile.unistra.fr/u/d/512fd5bafbde41619d13/), using the password `IMC-591726`. Presenters can upload presentations as many time as they want before the deadline. The most recent file will be taken for projection.
+The presentations is to be uploaded on [Seafile](https://seafile.unistra.fr/u/d/512fd5bafbde41619d13/). Presenters can upload presentations as many time as they want before the deadline. The most recent file will be taken for projection. The access code will be provided to registrants via email.
 
 The filename of the presentation must start with the `paper id` of the presentation and followed by any arbitrary annotation using the format `<paper_id>-<annotation>.<extension>`, e.g., `42-instructions_to_authors.pdf`.
 
@@ -26,7 +26,7 @@ Given the thight schedule and to avoid inevitable glitches, remote presenters wi
 
 Remote presenters will provide a pre-recorded video of their presentation in MPEG format no **later than Monday October, 24 at 2PM CEST**.
 
-The presentation video is to be uploaded on [Seafile](https://seafile.unistra.fr/u/d/512fd5bafbde41619d13/), using the password `IMC-591726`. Presenters can upload presentations as many time as they want before the deadline. The most recent file will be taken for projection.
+The presentation video is to be uploaded on [Seafile](https://seafile.unistra.fr/u/d/512fd5bafbde41619d13/). Presenters can upload presentations as many time as they want before the deadline. The most recent file will be taken for projection. The access code will be provided to registrants via email.
 
 The filename of the video must start with the `paper id` of the presentation and followed by any arbitrary annotation using the format `<paper_id>-<annotation>.mpg`, e.g., `42-instructions_to_authors.mpg`.
 
