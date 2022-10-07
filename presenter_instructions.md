@@ -1,3 +1,15 @@
+# Overview
+
+IMC’22 combines both a physical gathering alongside online participation. 
+
+## Video Streaming
+The IMC’22 main track will be live streamed via [BigBlueButton](https://bbb.unistra.fr/b/pas-cvz-7gm-czq). We recommend that participants use Chrome. There will be a single BigBlueButton room for the whole conference. Participants can simply join this to view the presentations. The access code will be provided to registrants via email.
+
+## Interaction and Q&A:
+Remote interaction will be underpinned by the SIGCOMM IMC2022 Slack Workspace. We encourage participants to make extensive use of Slack to engage with each other. Q&A for each presentation will also be managed via Slack. At the end of each paper presentation, the session chair will invite questions. Online participants can input their questions to the imc22-main Slack channel. This channel can also be used for wider discussion about presentations. Note, the BigBlueButton chat channel will not be monitored for questions: all questions should take place exclusively via Slack.
+
+Note: SIGCOMM's Slack channels are available via [sigcomm.slack.com](http://sigcomm.slack.com). If you're asked to sign in, use the workspace name `sigcomm.slack.com` to sign up or sign in.)
+
 # Instructions for presenters
 
 Presentations will be projected to the local audience via a laptop provided by the orginizers. This laptop screen will be replicated for remote attendance on [BigBlueButton](https://bbb.unistra.fr/b/pas-cvz-7gm-czq).
@@ -20,8 +32,8 @@ The filename of the video must start with the `paper id` of the presentation and
 
 In case remote presenters have issues with their microphone, the chairperson will relay questions and answers on the slack channel of the conference.
 
-Remote presenters will have the opportunity to test the [BigBlueButton](https://bbb.unistra.fr/b/pas-cvz-7gm-czq) tool on Monday October, 24 from 3PM to 5PM CEST using the access code `591726`. We only provide support for Chrome browser.
+Remote presenters will have the opportunity to test the [BigBlueButton](https://bbb.unistra.fr/b/pas-cvz-7gm-czq) tool on Monday October, 24 from 3PM to 5PM CEST. We only provide support for Chrome browser.
 
 # Help, support, and questions to the crew
 
-For any question, please visit the `#imc22-help` channel of the [Sigcomm Slack](http://sigcomm.slack.com).
+For any question, please visit the `#imc22-help` channel of the [Sigcomm Slack](https://sigcomm.slack.com/archives/C0334CU4W15).
