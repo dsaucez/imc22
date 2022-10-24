@@ -1,24 +1,77 @@
 #!/bin/bash
-USAGE="Usage: $0 paper_id"
-if [ "$#" == "0" ]; then
-        echo "$USAGE"
-        exit 1
+
+# Copyright (c) 2022, Damien Saucez
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice, this
+#    list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+#
+# 3. Neither the name of the copyright holder nor the names of its
+#    contributors may be used to endorse or promote products derived from
+#    this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+set -e -o pipefail
+
+print_usage() {
+  printf "Usage: $0 -p paper_id [-c] [-f file]\nGenerate video file for the ACM. At the end of execution, 'paper-id.m4v' is created.\n\n  c       : include camera feed in the video\n  f string: presentation video filename\n  p int   : paper id\n\nIf no presentation video filename is provided, the video is assumed to be '<paper-id>-presentation.mkv'.\nIf camera feed is activated, the feed is taken from '<paper-id>-camera.mkv'\n" >&2
+}
+
+while getopts 'p:cf:' flag; do
+  case "${flag}" in
+    c) camera="true" ;;
+    f) presofile="${OPTARG}" ;;
+    p) paper="${OPTARG}" ;;
+  esac
+done
+
+if [ -z "$paper" ]; then
+  print_usage
+  exit 1
 fi
 
-paper=$1
-shift
+echo "Generating video for paper #$paper"
 
-echo "Preparing paper #$paper"
+if [ -z "$presofile" ]; then
+  presofile=${paper}-presentation.mkv
+fi
 
-# 0. create PIP
-ffmpeg -i camera.mkv -i presentation.mkv -filter_complex "[0]scale=iw/5:ih/5 [pip]; [1][pip] overlay=main_w-overlay_w-10:main_h-overlay_h-10" -profile:v main -level 3.1 -b:v 440k -ar 44100 -ab 128k -s 1920x1080  -bsf:v h264_mp4toannexb  pip.mp4
+if [ -n "$camera" ]; then
+  # create PIP in mp4
+  camera=${paper}-camera.mkv
+  ffmpeg -i ${camera} -i $presofile -filter_complex "[0]scale=iw/5:ih/5 [pip]; [1][pip] overlay=main_w-overlay_w-10:main_h-overlay_h-10" -profile:v main -level 3.1 -b:v 440k -ar 44100 -ab 128k -s 1920x1080  -bsf:v h264_mp4toannexb ${paper}.mp4
+else
+  # not need for PIP, convert to mp4
+  ffmpeg -i $presofile  -profile:v main -level 3.1 -b:v 440k -ar 44100 -ab 128k -s 1920x1080  -bsf:v h264_mp4toannexb -y ${paper}.mp4
+fi
 
-# 1. convert input to correct format
-ffmpeg -i 'pip.mp4' -c copy -bsf:v h264_mp4toannexb -f mpegts -y presentation.ts
+# convert input to correct format
+ffmpeg -i ${paper}.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts -y ${paper}.ts
 
-# 2. concatenate logo and presentation
-ffmpeg -i "concat:logo.ts|presentation.ts" -c copy -c:v libx264 -c:a aac ${paper}.m4v -y
+if [ ! -f "logo.ts" ]; then
+  ffmpeg -i logo.m4v -c copy -bsf:v h264_mp4toannexb -f mpegts logo.ts
+fi
+
+# concatenate logo and presentation
+ffmpeg -i "concat:logo.ts|${paper}.ts" -c copy -c:v libx264 -c:a aac -y ${paper}.m4v
 
 # 3. clean temporary files
-rm pip.mp4
-rm presentation.ts
+rm ${paper}.mp4
+rm ${paper}.ts
