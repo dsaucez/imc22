@@ -2,7 +2,7 @@
 ## Install `ffmpeg` and `ffprobe`
 
 ## Create the PIP with the presentation and the 
-ffmpeg -i camera.mkv -i presentation.mkv -filter_complex "[0]scale=iw/5:ih/5 [pip]; [1][pip] overlay=main_w-overlay_w-10:main_h-overlay_h-10" -profile:v main -level 3.1 -b:v 440k -ar 44100 -ab 128k -s 720x400  -bsf:v h264_mp4toannexb  pip.mp4
+`ffmpeg -i camera.mkv -i presentation.mkv -filter_complex "[0]scale=iw/5:ih/5 [pip]; [1][pip] overlay=main_w-overlay_w-10:main_h-overlay_h-10" -profile:v main -level 3.1 -b:v 440k -ar 44100 -ab 128k -s 720x400  -bsf:v h264_mp4toannexb  pip.mp4`
 
 ## Concatenate the logo with the presentation video
 
