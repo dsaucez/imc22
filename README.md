@@ -45,3 +45,9 @@ Generate slides with picture in picture camera in `381.m4v` from `381-presentati
 ```bash
 sh generate_video.sh -p 666 -f 381-presentation.mpeg
 ```
+## Generate IMC'22 videos
+in the directory with the videos:
+
+```bash
+sh make_all.sh -r "1440x1080"
+```
